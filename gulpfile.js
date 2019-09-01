@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
+var terser = require('gulp-terser');
 var concat = require('gulp-concat');
 var pump = require('pump');
 
@@ -10,7 +10,7 @@ var folderDocs = "docs/assets/js/";
 gulp.task("build-js", function (callback) {
 	pump([
 		gulp.src("src/Rainstorm.js"),
-		//uglify(),
+		terser(),
 		concat(fileName + ".min.js"),
 		gulp.dest(folderDestination),
 		gulp.dest(folderDocs)
